@@ -3,6 +3,7 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 import routerPost from "./routes/post.js";
+import authUser from "./routes/auth.js";
 
 const app = express();
 
@@ -21,5 +22,6 @@ app.use(helmet());
 app.use(morgan("common"));
 
 app.use("/api", routerPost);
+app.use("/api", authUser);
 
 app.listen(5000, () => console.log("STARTED..."));
